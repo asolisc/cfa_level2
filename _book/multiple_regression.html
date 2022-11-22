@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.515">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>CFA Level II Prep - 2&nbsp; Multiple Regression</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./time_series_analysis.html" rel="next">
+<link href="./linear_regression.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multiple Regression</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">CFA Level II Prep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Linear Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multiple_regression.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multiple Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_series_analysis.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-multiple-linear-regression-model-mlrm-and-statistical-significance-of-the-predictors" id="toc-the-multiple-linear-regression-model-mlrm-and-statistical-significance-of-the-predictors" class="nav-link active" data-scroll-target="#the-multiple-linear-regression-model-mlrm-and-statistical-significance-of-the-predictors"> <span class="header-section-number">2.1</span> The Multiple Linear Regression Model (MLRM) and Statistical Significance of the Predictors</a></li>
+  <li><a href="#regression-coefficients-and-p-values" id="toc-regression-coefficients-and-p-values" class="nav-link" data-scroll-target="#regression-coefficients-and-p-values"> <span class="header-section-number">2.2</span> Regression Coefficients and p-values</a></li>
+  <li><a href="#hypothesis-testing-formulation-under-the-mlrm" id="toc-hypothesis-testing-formulation-under-the-mlrm" class="nav-link" data-scroll-target="#hypothesis-testing-formulation-under-the-mlrm"> <span class="header-section-number">2.3</span> Hypothesis Testing Formulation Under the MLRM</a></li>
+  <li><a href="#hypothesis-testing-interpretation-under-the-mlrm" id="toc-hypothesis-testing-interpretation-under-the-mlrm" class="nav-link" data-scroll-target="#hypothesis-testing-interpretation-under-the-mlrm"> <span class="header-section-number">2.4</span> Hypothesis Testing Interpretation Under the MLRM</a></li>
+  <li><a href="#model-prediction" id="toc-model-prediction" class="nav-link" data-scroll-target="#model-prediction"> <span class="header-section-number">2.5</span> Model Prediction</a></li>
+  <li><a href="#mlrm-assumptions" id="toc-mlrm-assumptions" class="nav-link" data-scroll-target="#mlrm-assumptions"> <span class="header-section-number">2.6</span> MLRM Assumptions</a></li>
+  <li><a href="#the-f-statistic" id="toc-the-f-statistic" class="nav-link" data-scroll-target="#the-f-statistic"> <span class="header-section-number">2.7</span> The F-Statistic</a></li>
+  <li><a href="#r-squared-and-adjusted-r-squared" id="toc-r-squared-and-adjusted-r-squared" class="nav-link" data-scroll-target="#r-squared-and-adjusted-r-squared"> <span class="header-section-number">2.8</span> R-squared and Adjusted R-squared</a></li>
+  <li><a href="#model-output-and-anova" id="toc-model-output-and-anova" class="nav-link" data-scroll-target="#model-output-and-anova"> <span class="header-section-number">2.9</span> Model Output and ANOVA</a></li>
+  <li><a href="#mrlm-interpretation-qualitative-predictors" id="toc-mrlm-interpretation-qualitative-predictors" class="nav-link" data-scroll-target="#mrlm-interpretation-qualitative-predictors"> <span class="header-section-number">2.10</span> MRLM Interpretation; Qualitative Predictors</a></li>
+  <li><a href="#heteroskedasticity-and-serial-correlation" id="toc-heteroskedasticity-and-serial-correlation" class="nav-link" data-scroll-target="#heteroskedasticity-and-serial-correlation"> <span class="header-section-number">2.11</span> Heteroskedasticity and Serial Correlation</a></li>
+  <li><a href="#multicollinearity" id="toc-multicollinearity" class="nav-link" data-scroll-target="#multicollinearity"> <span class="header-section-number">2.12</span> Multicollinearity</a></li>
+  <li><a href="#model-misspecification" id="toc-model-misspecification" class="nav-link" data-scroll-target="#model-misspecification"> <span class="header-section-number">2.13</span> Model Misspecification</a></li>
+  <li><a href="#logistic-regression" id="toc-logistic-regression" class="nav-link" data-scroll-target="#logistic-regression"> <span class="header-section-number">2.14</span> Logistic Regression</a></li>
+  <li><a href="#mrlm-interpretation-and-results" id="toc-mrlm-interpretation-and-results" class="nav-link" data-scroll-target="#mrlm-interpretation-and-results"> <span class="header-section-number">2.15</span> MRLM Interpretation and Results</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multiple Regression</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter contains 15 sections, each one covering a Learning Outcomes (LOS) from the curriculum.</p>
+<ol type="1">
+<li><p>Formulate a multiple regression equation to describe the relation between a dependent variable and several independent variables, and determine the statistical significance of each independent variable.</p></li>
+<li><p>Interpret estimated regression coefficients and their p-values.</p></li>
+<li><p>Formulate a null and an alternative hypothesis about the population value of a regression coefficient, calculate the value of the test statistic, and determine whether to reject the null hypothesis at a given level of significance.</p></li>
+<li><p>Interpret the results of hypothesis tests of regression coefficients.</p></li>
+<li><p>Calculate and interpret a predicted value for the dependent variable, given an estimated regression model and assumed values for the independent variables.</p></li>
+<li><p>Explain the assumptions of a multiple regression model.</p></li>
+<li><p>Calculate and interpret the F-statistic, and describe how it is used in regression analysis.</p></li>
+<li><p>Contrast and interpret the R2 and adjusted R2 in multiple regression.</p></li>
+<li><p>Evaluate how well a regression model explains the dependent variable by analyzing the output of the regression equation and an ANOVA table.</p></li>
+<li><p>Formulate and interpret a multiple regression, including qualitative independent variables.</p></li>
+<li><p>Explain the types of heteroskedasticity and how heteroskedasticity and serial correlation affect statistical inference.</p></li>
+<li><p>Describe multicollinearity, and explain its causes and effects in regression analysis.</p></li>
+<li><p>Describe how model misspecification affects the results of a regression analysis, and describe how to avoid common forms of misspecification.</p></li>
+<li><p>Interpret an estimated logistic regression.</p></li>
+<li><p>Evaluate and interpret a multiple regression model and its results.</p></li>
+</ol>
+<section id="the-multiple-linear-regression-model-mlrm-and-statistical-significance-of-the-predictors" class="level2" data-number="2.1">
+<h2 data-number="2.1" class="anchored" data-anchor-id="the-multiple-linear-regression-model-mlrm-and-statistical-significance-of-the-predictors"><span class="header-section-number">2.1</span> The Multiple Linear Regression Model (MLRM) and Statistical Significance of the Predictors</h2>
+</section>
+<section id="regression-coefficients-and-p-values" class="level2" data-number="2.2">
+<h2 data-number="2.2" class="anchored" data-anchor-id="regression-coefficients-and-p-values"><span class="header-section-number">2.2</span> Regression Coefficients and p-values</h2>
+</section>
+<section id="hypothesis-testing-formulation-under-the-mlrm" class="level2" data-number="2.3">
+<h2 data-number="2.3" class="anchored" data-anchor-id="hypothesis-testing-formulation-under-the-mlrm"><span class="header-section-number">2.3</span> Hypothesis Testing Formulation Under the MLRM</h2>
+</section>
+<section id="hypothesis-testing-interpretation-under-the-mlrm" class="level2" data-number="2.4">
+<h2 data-number="2.4" class="anchored" data-anchor-id="hypothesis-testing-interpretation-under-the-mlrm"><span class="header-section-number">2.4</span> Hypothesis Testing Interpretation Under the MLRM</h2>
+</section>
+<section id="model-prediction" class="level2" data-number="2.5">
+<h2 data-number="2.5" class="anchored" data-anchor-id="model-prediction"><span class="header-section-number">2.5</span> Model Prediction</h2>
+</section>
+<section id="mlrm-assumptions" class="level2" data-number="2.6">
+<h2 data-number="2.6" class="anchored" data-anchor-id="mlrm-assumptions"><span class="header-section-number">2.6</span> MLRM Assumptions</h2>
+</section>
+<section id="the-f-statistic" class="level2" data-number="2.7">
+<h2 data-number="2.7" class="anchored" data-anchor-id="the-f-statistic"><span class="header-section-number">2.7</span> The F-Statistic</h2>
+</section>
+<section id="r-squared-and-adjusted-r-squared" class="level2" data-number="2.8">
+<h2 data-number="2.8" class="anchored" data-anchor-id="r-squared-and-adjusted-r-squared"><span class="header-section-number">2.8</span> R-squared and Adjusted R-squared</h2>
+</section>
+<section id="model-output-and-anova" class="level2" data-number="2.9">
+<h2 data-number="2.9" class="anchored" data-anchor-id="model-output-and-anova"><span class="header-section-number">2.9</span> Model Output and ANOVA</h2>
+</section>
+<section id="mrlm-interpretation-qualitative-predictors" class="level2" data-number="2.10">
+<h2 data-number="2.10" class="anchored" data-anchor-id="mrlm-interpretation-qualitative-predictors"><span class="header-section-number">2.10</span> MRLM Interpretation; Qualitative Predictors</h2>
+</section>
+<section id="heteroskedasticity-and-serial-correlation" class="level2" data-number="2.11">
+<h2 data-number="2.11" class="anchored" data-anchor-id="heteroskedasticity-and-serial-correlation"><span class="header-section-number">2.11</span> Heteroskedasticity and Serial Correlation</h2>
+</section>
+<section id="multicollinearity" class="level2" data-number="2.12">
+<h2 data-number="2.12" class="anchored" data-anchor-id="multicollinearity"><span class="header-section-number">2.12</span> Multicollinearity</h2>
+</section>
+<section id="model-misspecification" class="level2" data-number="2.13">
+<h2 data-number="2.13" class="anchored" data-anchor-id="model-misspecification"><span class="header-section-number">2.13</span> Model Misspecification</h2>
+</section>
+<section id="logistic-regression" class="level2" data-number="2.14">
+<h2 data-number="2.14" class="anchored" data-anchor-id="logistic-regression"><span class="header-section-number">2.14</span> Logistic Regression</h2>
+</section>
+<section id="mrlm-interpretation-and-results" class="level2" data-number="2.15">
+<h2 data-number="2.15" class="anchored" data-anchor-id="mrlm-interpretation-and-results"><span class="header-section-number">2.15</span> MRLM Interpretation and Results</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./linear_regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Linear Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./time_series_analysis.html" class="pagination-link">
+        <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>

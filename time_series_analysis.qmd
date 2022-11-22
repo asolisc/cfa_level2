@@ -1,0 +1,79 @@
+# Time Series Analysis
+
+This chapter contains 15 sections, each one covering a Learning Outcome (LOS) from the curriculum.
+
+1. Calculate and evaluate the predicted trend value for a time series, modeled as either a linear trend or a log-linear trend, given the estimated trend coefficients.
+
+2. Describe factors that determine whether a linear or a log-linear trend should be used with a particular time series and evaluate limitations of trend models.
+
+3. Explain the requirement for a time series to be covariance stationary and describe the significance of a series that is not stationary.
+
+4. Describe the structure of an autoregressive (AR) model of order p and calculate one- and two-period-ahead forecasts given the estimated coefficients.
+
+5. Explain how autocorrelations of the residuals can be used to test whether the autoregressive model fits the time series.
+
+6. Explain mean reversion and calculate a mean-reverting level.
+
+7. Contrast in-sample and out-of-sample forecasts and compare the forecasting accuracy of different time-series models based on the root mean squared error criterion.
+
+8. Explain the instability of coefficients of time-series models.
+
+9. Describe characteristics of random walk processes and contrast them to covariance stationary processes.
+
+10. Describe implications of unit roots for time-series analysis, explain when unit roots are likely to occur and how to test for them, and demonstrate how a time series with a unit root can be transformed so it can be analyzed with an AR model.
+
+11. Describe the steps of the unit root test for nonstationarity and explain the relation of the test to autoregressive time-series models.
+
+12. Explain how to test and correct for seasonality in a time-series model and calculate and interpret a forecasted value using an ar model with a seasonal lag.
+
+13. Explain autoregressive conditional heteroskedasticity (arch) and describe how arch models can be applied to predict the variance of a time series.
+
+14. Explain how time-series variables should be analyzed for nonstationarity and/or cointegration before use in a linear regression.
+ 
+15. Determine an appropriate time-series model to analyze a given investment problem and justify that choice.
+
+
+## The (linear and log-linear) Trend Model
+
+
+## Usage of Trend Models and Limitations
+
+
+## Stationarity
+
+
+## AR(p) Models and Forecasting
+
+
+
+## Autocorrelation and Model Fitting
+
+
+## Mean Reversion
+
+
+## Model Evaluation
+
+
+
+## Coefficient Instability
+
+
+## Random Walks vs. Stationary Processes
+
+
+## Unit Roots and Differentiation
+
+
+## Seasonality and SAR(p) models.
+
+
+
+## Autoregressive Conditional Heteroskedasticity (ARCH) models
+
+
+
+## Cointegration and Non-Stationarity
+
+
+## Model Choice

@@ -1,0 +1,30 @@
+project:
+  type: book
+
+book:
+  title: "2023 CFA Level II Prep"
+  author: "Alexis Solis Cancino"
+  date: "2022/11/21"
+  chapters:
+    - index.qmd
+    - linear_regression.qmd
+    - multiple_regression.qmd
+    - time_series_analysis.qmd
+    - references.qmd
+  sidebar: 
+    collapse-level: 1
+    style: docked
+    search: true
+    
+   
+bibliography: references.bib
+
+format:
+  html:
+    theme: cosmo
+    cover-image: "images/dylan-calluy-unsplash.jpg"
+  pdf:
+    documentclass: scrreprt
+
+editor: visual
+

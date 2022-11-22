@@ -1,0 +1,44 @@
+# Introduction to Linear Regression
+
+This chapter contains 8 sections, each one covering a Learning Outcomes (LOS) from the curriculum.
+
+1. Describe a simple linear regression model and the roles of the dependent and independent variables in the model.
+
+2. Describe the least squares criterion, how it is used to estimate regression coefficients, and their interpretation.
+
+3. Explain the assumptions underlying the simple linear regression model, and describe how residuals and residual plots indicate if these assumptions may have been violated.
+
+4. Calculate and interpret the coefficient of determination and the F-statistic in a simple linear regression.
+
+5. Describe the use of analysis of variance (ANOVA) in regression analysis, interpret ANOVA results, and calculate and interpret the standard error of estimate in a simple linear regression.
+
+6. Formulate a null and an alternative hypothesis about a population value of a regression coefficient, and determine whether the null hypothesis is rejected at a given level of significance.
+
+7. Calculate and interpret the predicted value for the dependent variable, and a prediction interval for it, given an estimated linear regression model and a value for the independent variable.
+
+8. Describe different functional forms of simple linear regressions.
+
+
+## SLR Model and its variables
+
+
+## Least Squares and Coefficient Estimation
+
+
+## Model Asumptions and Violations
+
+
+## Coefficient of Determination and the F-statistic
+
+
+## Analysis of Variance (ANOVA)
+
+
+## Hypothesis Testing
+
+
+## Prediction and Prediction Intervals
+
+
+## Functional Forms of the SLR Model
+

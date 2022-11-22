@@ -1,0 +1,78 @@
+# Multiple Regression
+
+This chapter contains 15 sections, each one covering a Learning Outcomes (LOS) from the curriculum.
+
+1. Formulate a multiple regression equation to describe the relation between a dependent variable and several independent variables, and determine the statistical significance of each independent variable.
+
+2. Interpret estimated regression coefficients and their p-values.
+
+3. Formulate a null and an alternative hypothesis about the population value of a regression coefficient, calculate the value of the test statistic, and determine whether to reject the null hypothesis at a given level of significance.
+
+4. Interpret the results of hypothesis tests of regression coefficients.
+
+5. Calculate and interpret a predicted value for the dependent variable, given an estimated regression model and assumed values for the independent variables.
+
+6. Explain the assumptions of a multiple regression model.
+
+7. Calculate and interpret the F-statistic, and describe how it is used in regression analysis.
+
+8. Contrast and interpret the R2 and adjusted R2 in multiple regression.
+
+9. Evaluate how well a regression model explains the dependent variable by analyzing the output of the regression equation and an ANOVA table.
+
+10. Formulate and interpret a multiple regression, including qualitative independent variables.
+
+11. Explain the types of heteroskedasticity and how heteroskedasticity and serial correlation affect statistical inference.
+
+12. Describe multicollinearity, and explain its causes and effects in regression analysis.
+
+13. Describe how model misspecification affects the results of a regression analysis, and describe how to avoid common forms of misspecification.
+
+14. Interpret an estimated logistic regression.
+
+15. Evaluate and interpret a multiple regression model and its results.
+
+
+## The Multiple Linear Regression Model (MLRM) and Statistical Significance of the Predictors
+
+
+## Regression Coefficients and p-values
+
+
+## Hypothesis Testing Formulation Under the MLRM
+
+
+## Hypothesis Testing Interpretation Under the MLRM
+
+
+## Model Prediction
+
+
+## MLRM Assumptions
+
+
+## The F-Statistic
+
+
+## R-squared and Adjusted R-squared
+
+
+## Model Output and ANOVA
+
+
+## MRLM Interpretation; Qualitative Predictors
+
+
+## Heteroskedasticity and Serial Correlation
+
+
+## Multicollinearity
+
+
+## Model Misspecification
+
+
+## Logistic Regression
+
+
+## MRLM Interpretation and Results

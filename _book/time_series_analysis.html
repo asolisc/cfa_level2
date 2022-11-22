@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-0.9.515">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>2023 CFA Level II Prep - 3&nbsp; Time Series Analysis</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./multiple_regression.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar docked">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+    <div class="container-fluid d-flex justify-content-between">
+      <h1 class="quarto-secondary-nav-title"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></h1>
+      <button type="button" class="quarto-btn-toggle btn" aria-label="Show secondary navigation">
+        <i class="bi bi-chevron-right"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation docked overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">2023 CFA Level II Prep</a> 
+    </div>
+      </div>
+      <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+      </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">Preface</a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./linear_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Introduction to Linear Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./multiple_regression.html" class="sidebar-item-text sidebar-link"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multiple Regression</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./time_series_analysis.html" class="sidebar-item-text sidebar-link active"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">References</a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#the-linear-and-log-linear-trend-model" id="toc-the-linear-and-log-linear-trend-model" class="nav-link active" data-scroll-target="#the-linear-and-log-linear-trend-model"> <span class="header-section-number">3.1</span> The (linear and log-linear) Trend Model</a></li>
+  <li><a href="#usage-of-trend-models-and-limitations" id="toc-usage-of-trend-models-and-limitations" class="nav-link" data-scroll-target="#usage-of-trend-models-and-limitations"> <span class="header-section-number">3.2</span> Usage of Trend Models and Limitations</a></li>
+  <li><a href="#stationarity" id="toc-stationarity" class="nav-link" data-scroll-target="#stationarity"> <span class="header-section-number">3.3</span> Stationarity</a></li>
+  <li><a href="#arp-models-and-forecasting" id="toc-arp-models-and-forecasting" class="nav-link" data-scroll-target="#arp-models-and-forecasting"> <span class="header-section-number">3.4</span> AR(p) Models and Forecasting</a></li>
+  <li><a href="#autocorrelation-and-model-fitting" id="toc-autocorrelation-and-model-fitting" class="nav-link" data-scroll-target="#autocorrelation-and-model-fitting"> <span class="header-section-number">3.5</span> Autocorrelation and Model Fitting</a></li>
+  <li><a href="#mean-reversion" id="toc-mean-reversion" class="nav-link" data-scroll-target="#mean-reversion"> <span class="header-section-number">3.6</span> Mean Reversion</a></li>
+  <li><a href="#model-evaluation" id="toc-model-evaluation" class="nav-link" data-scroll-target="#model-evaluation"> <span class="header-section-number">3.7</span> Model Evaluation</a></li>
+  <li><a href="#coefficient-instability" id="toc-coefficient-instability" class="nav-link" data-scroll-target="#coefficient-instability"> <span class="header-section-number">3.8</span> Coefficient Instability</a></li>
+  <li><a href="#random-walks-vs.-stationary-processes" id="toc-random-walks-vs.-stationary-processes" class="nav-link" data-scroll-target="#random-walks-vs.-stationary-processes"> <span class="header-section-number">3.9</span> Random Walks vs.&nbsp;Stationary Processes</a></li>
+  <li><a href="#unit-roots-and-differentiation" id="toc-unit-roots-and-differentiation" class="nav-link" data-scroll-target="#unit-roots-and-differentiation"> <span class="header-section-number">3.10</span> Unit Roots and Differentiation</a></li>
+  <li><a href="#seasonality-and-sarp-models." id="toc-seasonality-and-sarp-models." class="nav-link" data-scroll-target="#seasonality-and-sarp-models."> <span class="header-section-number">3.11</span> Seasonality and SAR(p) models.</a></li>
+  <li><a href="#autoregressive-conditional-heteroskedasticity-arch-models" id="toc-autoregressive-conditional-heteroskedasticity-arch-models" class="nav-link" data-scroll-target="#autoregressive-conditional-heteroskedasticity-arch-models"> <span class="header-section-number">3.12</span> Autoregressive Conditional Heteroskedasticity (ARCH) models</a></li>
+  <li><a href="#cointegration-and-non-stationarity" id="toc-cointegration-and-non-stationarity" class="nav-link" data-scroll-target="#cointegration-and-non-stationarity"> <span class="header-section-number">3.13</span> Cointegration and Non-Stationarity</a></li>
+  <li><a href="#model-choice" id="toc-model-choice" class="nav-link" data-scroll-target="#model-choice"> <span class="header-section-number">3.14</span> Model Choice</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title d-none d-lg-block"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Time Series Analysis</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+    
+  </div>
+  
+
+</header>
+
+<p>This chapter contains 15 sections, each one covering a Learning Outcome (LOS) from the curriculum.</p>
+<ol type="1">
+<li><p>Calculate and evaluate the predicted trend value for a time series, modeled as either a linear trend or a log-linear trend, given the estimated trend coefficients.</p></li>
+<li><p>Describe factors that determine whether a linear or a log-linear trend should be used with a particular time series and evaluate limitations of trend models.</p></li>
+<li><p>Explain the requirement for a time series to be covariance stationary and describe the significance of a series that is not stationary.</p></li>
+<li><p>Describe the structure of an autoregressive (AR) model of order p and calculate one- and two-period-ahead forecasts given the estimated coefficients.</p></li>
+<li><p>Explain how autocorrelations of the residuals can be used to test whether the autoregressive model fits the time series.</p></li>
+<li><p>Explain mean reversion and calculate a mean-reverting level.</p></li>
+<li><p>Contrast in-sample and out-of-sample forecasts and compare the forecasting accuracy of different time-series models based on the root mean squared error criterion.</p></li>
+<li><p>Explain the instability of coefficients of time-series models.</p></li>
+<li><p>Describe characteristics of random walk processes and contrast them to covariance stationary processes.</p></li>
+<li><p>Describe implications of unit roots for time-series analysis, explain when unit roots are likely to occur and how to test for them, and demonstrate how a time series with a unit root can be transformed so it can be analyzed with an AR model.</p></li>
+<li><p>Describe the steps of the unit root test for nonstationarity and explain the relation of the test to autoregressive time-series models.</p></li>
+<li><p>Explain how to test and correct for seasonality in a time-series model and calculate and interpret a forecasted value using an ar model with a seasonal lag.</p></li>
+<li><p>Explain autoregressive conditional heteroskedasticity (arch) and describe how arch models can be applied to predict the variance of a time series.</p></li>
+<li><p>Explain how time-series variables should be analyzed for nonstationarity and/or cointegration before use in a linear regression.</p></li>
+<li><p>Determine an appropriate time-series model to analyze a given investment problem and justify that choice.</p></li>
+</ol>
+<section id="the-linear-and-log-linear-trend-model" class="level2" data-number="3.1">
+<h2 data-number="3.1" class="anchored" data-anchor-id="the-linear-and-log-linear-trend-model"><span class="header-section-number">3.1</span> The (linear and log-linear) Trend Model</h2>
+</section>
+<section id="usage-of-trend-models-and-limitations" class="level2" data-number="3.2">
+<h2 data-number="3.2" class="anchored" data-anchor-id="usage-of-trend-models-and-limitations"><span class="header-section-number">3.2</span> Usage of Trend Models and Limitations</h2>
+</section>
+<section id="stationarity" class="level2" data-number="3.3">
+<h2 data-number="3.3" class="anchored" data-anchor-id="stationarity"><span class="header-section-number">3.3</span> Stationarity</h2>
+</section>
+<section id="arp-models-and-forecasting" class="level2" data-number="3.4">
+<h2 data-number="3.4" class="anchored" data-anchor-id="arp-models-and-forecasting"><span class="header-section-number">3.4</span> AR(p) Models and Forecasting</h2>
+</section>
+<section id="autocorrelation-and-model-fitting" class="level2" data-number="3.5">
+<h2 data-number="3.5" class="anchored" data-anchor-id="autocorrelation-and-model-fitting"><span class="header-section-number">3.5</span> Autocorrelation and Model Fitting</h2>
+</section>
+<section id="mean-reversion" class="level2" data-number="3.6">
+<h2 data-number="3.6" class="anchored" data-anchor-id="mean-reversion"><span class="header-section-number">3.6</span> Mean Reversion</h2>
+</section>
+<section id="model-evaluation" class="level2" data-number="3.7">
+<h2 data-number="3.7" class="anchored" data-anchor-id="model-evaluation"><span class="header-section-number">3.7</span> Model Evaluation</h2>
+</section>
+<section id="coefficient-instability" class="level2" data-number="3.8">
+<h2 data-number="3.8" class="anchored" data-anchor-id="coefficient-instability"><span class="header-section-number">3.8</span> Coefficient Instability</h2>
+</section>
+<section id="random-walks-vs.-stationary-processes" class="level2" data-number="3.9">
+<h2 data-number="3.9" class="anchored" data-anchor-id="random-walks-vs.-stationary-processes"><span class="header-section-number">3.9</span> Random Walks vs.&nbsp;Stationary Processes</h2>
+</section>
+<section id="unit-roots-and-differentiation" class="level2" data-number="3.10">
+<h2 data-number="3.10" class="anchored" data-anchor-id="unit-roots-and-differentiation"><span class="header-section-number">3.10</span> Unit Roots and Differentiation</h2>
+</section>
+<section id="seasonality-and-sarp-models." class="level2" data-number="3.11">
+<h2 data-number="3.11" class="anchored" data-anchor-id="seasonality-and-sarp-models."><span class="header-section-number">3.11</span> Seasonality and SAR(p) models.</h2>
+</section>
+<section id="autoregressive-conditional-heteroskedasticity-arch-models" class="level2" data-number="3.12">
+<h2 data-number="3.12" class="anchored" data-anchor-id="autoregressive-conditional-heteroskedasticity-arch-models"><span class="header-section-number">3.12</span> Autoregressive Conditional Heteroskedasticity (ARCH) models</h2>
+</section>
+<section id="cointegration-and-non-stationarity" class="level2" data-number="3.13">
+<h2 data-number="3.13" class="anchored" data-anchor-id="cointegration-and-non-stationarity"><span class="header-section-number">3.13</span> Cointegration and Non-Stationarity</h2>
+</section>
+<section id="model-choice" class="level2" data-number="3.14">
+<h2 data-number="3.14" class="anchored" data-anchor-id="model-choice"><span class="header-section-number">3.14</span> Model Choice</h2>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./multiple_regression.html" class="pagination-link">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Multiple Regression</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link">
+        <span class="nav-page-text">References</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+</body></html>
